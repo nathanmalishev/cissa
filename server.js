@@ -5,6 +5,7 @@ var MongoClient   = require('mongodb').MongoClient;
 var assert = require('assert');
 var exphbs     = require('express-handlebars');
 var bodyParser = require('body-parser');
+var adminRoutes = require('./adminRoutes');
 
 var hbs = exphbs.create({
   helpers:{
@@ -15,6 +16,9 @@ var hbs = exphbs.create({
 app.engine('handlebars', hbs.engine);
 app.set('view engine','handlebars');
 
+//allows us to use the static game
+app.use(express.static(__dirname+'/flappy-bird' ));
+app.use(express.static(__dirname+'/views' ));
 
 
 //allow server to recieve json objects on POST
@@ -39,28 +43,27 @@ dataBaseModel = (req)=>{
 var url = 'mongodb://localhost:27017/cissa';
 MongoClient.connect(url, function(err, db){
   assert.equal(null,err);
-  console.log('connected to the server');
+  console.log('connected to the database');
 
 
+  app.use('/admin', adminRoutes);
+  app.get('/:studentId', (req,res)=>{
+    db.collection('students').findOne({'studentId': req.params.studentId}, (err, doc)=>{
+      res.send(doc)
+    })
+  })
 
-
-
-  var leaders = [];
-  leaders[0] = {
-    name: 'nathan',
-    score:1
-  }
-
-  leaders[1] = {
-    name: 'jim',
-    score:5
-  }
-  console.log(leaders);
-
-  //allows us to use the static game
-  app.use(express.static(__dirname+'/flappy-bird' ));
-  app.use(express.static(__dirname+'/views' ));
-
+  app.delete('/:studentId', (req,res)=>{
+    if(req.params.studentId){
+      db.collection('students').deleteOne({'studentId': req.params.studentId}, (err, doc)=>{
+        if(err){
+          res.send('studentId does not exist')
+        }
+        res.send('studentid was delted: '+req.params.studentId)
+      })
+    }
+  })
+  
   app.get('/scoreboard', (req, res)=>{
     db.collection('students').find().sort({'score':-1}).limit(10).toArray((err,documents)=>{
       console.log(documents);
@@ -79,14 +82,12 @@ MongoClient.connect(url, function(err, db){
     if(scoreboard[req.body.studentId]){
       if(score > scoreboard[req.body.studentId].score){
         dataBaseModel(req);
-    console.log(scoreboard[req.body.studentId])
         db.collection('students').insertOne(
           scoreboard[req.body.studentId]
         )
       }
     }else{
         dataBaseModel(req);
-    console.log(scoreboard[req.body.studentId])
         db.collection('students').insertOne(
           scoreboard[req.body.studentId]
         )

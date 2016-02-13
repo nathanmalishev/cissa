@@ -23,12 +23,14 @@
         <th>Position</th>
         <th>Name</th>
         <th>Score</th>
+        <th>Delete</th>
       </tr>
       {{#each documents}}
       <tr>
         <td> {{counter @index }}</td>
         <td>{{this.name}}</td>
-        <td>{{this.score}}</td>
+        <td>{{this.score}}</td>    
+        <td><button type="button" class="btn btn-danger btn-xs">Delete</button></td>
       </tr>
       {{/each}}
     </table>  
