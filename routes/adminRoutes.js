@@ -18,22 +18,15 @@ module.exports = function(db){
   })
 
 
+  //home route on admin goes to Admin dashboard
   router.get('/', function(req,res){
-    res.send('admin home page');
-  });
-
-  router.get('/scoreboard', function(req,res){
     db.collection('students').find().sort({'score':-1}).limit(100).toArray((err,documents)=>{
       res.render('scoreboardAdmin', {documents});
     })
   })
 
-  /*router.get('/:studentId',function(req,res){*/
-    //res.send('studnet id')
-  /*})*/
-
   // see if a student exists
-  router.get('/studentId/:id', (req,res)=>{
+  router.get('/student/:id', (req,res)=>{
     db.collection('students')
       .findOne({'studentId': req.params.id}, (err, doc)=>{
         res.send(doc)
@@ -41,7 +34,7 @@ module.exports = function(db){
   });
 
   //delete a student if they have a stupid name
-  router.delete('/studentId/:id', (req,res)=>{
+  router.delete('/student/:id', (req,res)=>{
     if(req.params.id){
       db.collection('students')
         .deleteOne({'studentId': req.params.id}, (err, doc)=>{

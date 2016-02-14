@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title></title>
 <link rel="stylesheet" href="../bootstrap.min.css"></link>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
 <style>
   h2{
     text-align:center;
@@ -13,7 +14,14 @@
     margin:0 auto;
   }
 </style>
-
+<script >
+  console.log('script')
+  $('#deleteButton').click(function(){
+    //send event to server
+    console.log('being clicked')
+    alert('button clicked delete user');
+  })
+</script>
 </head>
 <body class="container">
   <div class=" col-xs-12 centered">
@@ -34,7 +42,21 @@
         <td>{{this.email}}</td>
         <td>{{this.studentId}}</td>
         <td>{{this.score}}</td>    
-        <td><button type="button" class="btn btn-danger btn-xs">Delete</button></td>
+        <td><button type="button" class="btn btn-danger btn-xs" 
+            onclick="
+            if(confirm('You are going to delete {{this.name}}') === true){
+              //send event to db
+              $.ajax({
+              url: '/admin/student/{{this.studentId}}',
+              type:'DELETE',
+              success: function(result){
+                location.reload();
+              }
+
+              })
+              }else{
+              //do nothing
+              }">Delete</button></td>
       </tr>
       {{/each}}
     </table>  

@@ -3,4 +3,5 @@ node_modules
 .npm
 *~
 *.swp
+.DS_Store
 *.swo
