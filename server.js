@@ -5,7 +5,6 @@ var MongoClient   = require('mongodb').MongoClient;
 var assert = require('assert');
 var exphbs     = require('express-handlebars');
 var bodyParser = require('body-parser');
-var adminRoutes = require('./routes/adminRoutes');
 
 var hbs = exphbs.create({
   helpers:{
@@ -46,6 +45,7 @@ MongoClient.connect(url, function(err, db){
   console.log('connected to the database');
 
   // Use admin routes
+  var adminRoutes = require('./routes/adminRoutes')(db);
   app.use('/admin', adminRoutes);
 
 

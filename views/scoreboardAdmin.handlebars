@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title></title>
-<link rel="stylesheet" href="bootstrap.min.css"></link>
+<link rel="stylesheet" href="../bootstrap.min.css"></link>
 <style>
   h2{
     text-align:center;
@@ -16,12 +16,14 @@
 
 </head>
 <body class="container">
-  <div class=" col-xs-6 centered">
+  <div class=" col-xs-12 centered">
     <h2 >CISSA</h2>
     <table class="table">
       <tr>
         <th>Position</th>
         <th>Name</th>
+        <th>Email</th>
+        <th>StudentId</th>
         <th>Score</th>
         <th>Delete</th>
       </tr>
@@ -29,6 +31,8 @@
       <tr>
         <td> {{counter @index }}</td>
         <td>{{this.name}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.studentId}}</td>
         <td>{{this.score}}</td>    
         <td><button type="button" class="btn btn-danger btn-xs">Delete</button></td>
       </tr>

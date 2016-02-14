@@ -23,15 +23,17 @@ module.exports = function(db){
   });
 
   router.get('/scoreboard', function(req,res){
-    res.send('admin scoreboard');
+    db.collection('students').find().sort({'score':-1}).limit(100).toArray((err,documents)=>{
+      res.render('scoreboardAdmin', {documents});
+    })
   })
 
-  router.get('/:studentId',function(req,res){
-    res.send('studnet id')
-  })
+  /*router.get('/:studentId',function(req,res){*/
+    //res.send('studnet id')
+  /*})*/
 
   // see if a student exists
-  app.get('/studentId/:id', (req,res)=>{
+  router.get('/studentId/:id', (req,res)=>{
     db.collection('students')
       .findOne({'studentId': req.params.id}, (err, doc)=>{
         res.send(doc)
@@ -39,7 +41,7 @@ module.exports = function(db){
   });
 
   //delete a student if they have a stupid name
-  app.delete('/studentId/:id', (req,res)=>{
+  router.delete('/studentId/:id', (req,res)=>{
     if(req.params.id){
       db.collection('students')
         .deleteOne({'studentId': req.params.id}, (err, doc)=>{
