@@ -5,7 +5,7 @@ var assert = require('assert');
 module.exports = function (db, scoreboard){
 
   router.get('/', (req,res)=>{
-    res.redirect('../flappy-bird/index.html');
+    res.sendFile('../flappy-bird/index.html');
   });
 
 
