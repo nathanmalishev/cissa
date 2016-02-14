@@ -16,7 +16,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine','handlebars');
 
 //allows us to use the static game
-app.use(express.static(path.join(__dirname,'/public' )));
+app.use(express.static(__dirname+'/public' ));
 
 
 //allow server to recieve json objects on POST
