@@ -8,7 +8,6 @@ module.exports = function(db){
 
   //have password auth nice and hard coded lol
   router.use(function Authentication(req, res,next){
-    console.log('authentication');
     var credentials = auth(req);
     if( !credentials || credentials.name !== 'cissa' || credentials.pass !== 'cissasisters' ){
       res.statusCode = 401;

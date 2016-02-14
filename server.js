@@ -45,14 +45,47 @@ MongoClient.connect(url, function(err, db){
   assert.equal(null,err);
   console.log('connected to the database');
 
+  //construct a hash
+
   // Use admin routes
   var adminRoutes = require('./routes/adminRoutes')(db);
   app.use('/admin', adminRoutes);
 
 
   //Use public routes
-  var publicroutes = require('./routes/publicRoutes')(db, scoreboard);
+  var publicroutes = require('./routes/publicRoutes')(db);
   app.use('/', publicroutes);
+  
+  //moved this outside of publicRoutes, because it had issues with the 
+  // local scoreboard 
+  app.post('/result', (req, res)=>{
+    var score = req.body.score || null;
+    var name = req.body.name || null;
+    var email = req.body.email || null;
+    var studentId = req.body.studentId || null;
+
+    
+    if(scoreboard[req.body.studentId]){
+      if(score > scoreboard[req.body.studentId].score){
+        dataBaseModel(req);
+        db.collection('students').findOneAndUpdate(
+          {'studentId': req.body.studentId},
+          scoreboard[req.body.studentId],
+          {upsert:true}
+        )
+      }
+    }else{
+        dataBaseModel(req);
+        db.collection('students').findOneAndUpdate(
+          {'studentId': req.body.studentId},
+          scoreboard[req.body.studentId],
+          {upsert:true}
+        )
+      }
+    }
+
+  )
+
 
   app.listen( process.env.PORT || 3000);
   console.log('server started on port '+ process.env.PORT);

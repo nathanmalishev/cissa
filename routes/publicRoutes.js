@@ -3,7 +3,7 @@ var router = express.Router();
 var assert = require('assert');
 var path  = require('path');
 
-module.exports = function (db, scoreboard){
+module.exports = function (db){
 
   router.get('/', (req,res)=>{
     res.sendFile(path.normalize(__dirname+'/../index.html'));
@@ -22,32 +22,6 @@ module.exports = function (db, scoreboard){
   });
 
 
-  
-  router.post('/result', (req, res)=>{
-    var score = req.body.score || null;
-    var name = req.body.name || null;
-    var email = req.body.email || null;
-    var studentId = req.body.studentId || null;
-
-    
-    if(scoreboard[req.body.studentId]){
-      if(score > scoreboard[req.body.studentId].score){
-        dataBaseModel(req);
-        db.collection('students').insertOne(
-          scoreboard[req.body.studentId]
-        )
-      }
-    }else{
-        dataBaseModel(req);
-        db.collection('students').insertOne(
-          scoreboard[req.body.studentId]
-        )
-      }
-    }
-
-  )
-  
-  
  return router; 
 }
 
