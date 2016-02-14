@@ -38,13 +38,8 @@ dataBaseModel = (req)=>{
 }
 
 //database start
-//everything is inside the database callback
-var url = process.env.MONGOLAB_URI ||  'mongodb://cissa:cissaSISTERS@ds061375.mongolab.com:61375/heroku_8rd67kqq' ;
-
-
-//below for any one interest is either the prod db url or localhost
-//var prod_url = 'mongodb://heroku_gbcd3023:ks61vqg322is235c80e1red4bv@ds061385.mongolab.com:61385/heroku_gbcd3023';
 //var local_url = 'mongodb://localhost:27017/cissa';
+var url = process.env.MONGOLAB_URI ||  'mongodb://cissa:cissaSISTERS@ds061375.mongolab.com:61375/heroku_8rd67kqq' ;
 
 
 MongoClient.connect(url, function(err, db){
@@ -60,15 +55,7 @@ MongoClient.connect(url, function(err, db){
   var publicroutes = require('./routes/publicRoutes')(db, scoreboard);
   app.use('/', publicroutes);
 
-
-  
-
-  
-
-
-
-
-  app.listen(3000);
-  console.log('server started on port 3000')
+  app.listen( process.env.PORT || 3000);
+  console.log('server started on port '+ process.env.PORT);
 
 });
