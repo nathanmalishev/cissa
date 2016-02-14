@@ -16,7 +16,7 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine','handlebars');
 
 //allows us to use the static game
-app.use(express.static(__dirname));
+app.use(express.static(__dirname+'/flappy-bird' ));
 app.use(express.static(__dirname+'/views' ));
 
 
