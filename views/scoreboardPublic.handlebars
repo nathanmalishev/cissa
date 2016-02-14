@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+<link rel="stylesheet" href="bootstrap.min.css"></link>
+<style>
+  h2{
+    text-align:center;
+  }
+  .centered{
+    float:none;
+    margin:0 auto;
+  }
+</style>
+
+</head>
+<body class="container">
+  <div class=" col-xs-6 centered">
+    <h2 >CISSA</h2>
+    <table class="table">
+      <tr>
+        <th>Position</th>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Delete</th>
+      </tr>
+      {{#each documents}}
+      <tr>
+        <td> {{counter @index }}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.score}}</td>    
+        <td><button type="button" class="btn btn-danger btn-xs">Delete</button></td>
+      </tr>
+      {{/each}}
+    </table>  
+  </div>
+</body>
+</html>
