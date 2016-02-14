@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var assert = require('assert');
+var path  = require('path');
 
 module.exports = function (db, scoreboard){
 
   router.get('/', (req,res)=>{
-    res.sendFile(__dirname+'../flappy-bird/index.html');
+    res.sendFile(path.normalize(__dirname+'/../flappy-bird/index.html'));
   });
 
 
