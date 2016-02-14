@@ -2,8 +2,12 @@
 
 Things to be done
   - make sign upscreen pretty
-  - move admin routes, behing basic auth
-  - sort out public routes
+  - add cissa logos, get rid of the fork/star thing
+
+Things to check out if you haven't
+  /admin - takes you to admin dashboard, user:cissa, password:cissasisters
+  /scoreboard - takes you to public scoreboard
+  
 
 ** HOW TO INSTALL **
 
