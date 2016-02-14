@@ -39,9 +39,14 @@ dataBaseModel = (req)=>{
 
 //database start
 //everything is inside the database callback
-var url = 'mongodb://heroku_gbcd3023:ks61vqg322is235c80e1red4bv@ds061385.mongolab.com:61385/heroku_gbcd3023';
- 
-  //ENV['MONGOLAB_URI'] || 'mongodb://localhost:27017/cissa';
+var url = process.env.MONGOLAB_URI ||  'mongodb://cissa:cissaSISTERS@ds061375.mongolab.com:61375/heroku_8rd67kqq' ;
+
+
+//below for any one interest is either the prod db url or localhost
+//var prod_url = 'mongodb://heroku_gbcd3023:ks61vqg322is235c80e1red4bv@ds061385.mongolab.com:61385/heroku_gbcd3023';
+//var local_url = 'mongodb://localhost:27017/cissa';
+
+
 MongoClient.connect(url, function(err, db){
   assert.equal(null,err);
   console.log('connected to the database');
