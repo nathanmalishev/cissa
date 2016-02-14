@@ -36,6 +36,23 @@ dataBaseModel = (req)=>{
   )
 }
 
+//hydrates the first scoreboard from the db
+function initialiseScoreboard(db){
+  var board = {};
+  db.collection('students').find().forEach(function(doc){
+    if(doc === null){
+      return board;
+    }
+    board[doc.studentId] = {
+      name: doc.name,
+      email: doc.email,
+      studentId: doc.studentId,
+      score: doc.score
+    }
+  })
+  return board;
+}
+
 //database start
 //var local_url = 'mongodb://localhost:27017/cissa';
 var url = process.env.MONGOLAB_URI ||  'mongodb://cissa:cissaSISTERS@ds061375.mongolab.com:61375/heroku_8rd67kqq' ;
@@ -46,6 +63,7 @@ MongoClient.connect(url, function(err, db){
   console.log('connected to the database');
 
   //construct a hash
+  scoreboard = initialiseScoreboard(db);
 
   // Use admin routes
   var adminRoutes = require('./routes/adminRoutes')(db);
@@ -56,30 +74,33 @@ MongoClient.connect(url, function(err, db){
   var publicroutes = require('./routes/publicRoutes')(db);
   app.use('/', publicroutes);
   
-  //moved this outside of publicRoutes, because it had issues with the 
-  // local scoreboard 
+
+  //this handles dealing with the local scoreboard
+  //and the students on the server
   app.post('/result', (req, res)=>{
     var score = req.body.score || null;
     var name = req.body.name || null;
     var email = req.body.email || null;
     var studentId = req.body.studentId || null;
 
-    
+    //is this already in the hash?
     if(scoreboard[req.body.studentId]){
       if(score > scoreboard[req.body.studentId].score){
         dataBaseModel(req);
-        db.collection('students').findOneAndUpdate(
-          {'studentId': req.body.studentId},
-          scoreboard[req.body.studentId],
-          {upsert:true}
+        db.collection('students')
+          .findOneAndUpdate(
+            {'studentId': req.body.studentId},
+            scoreboard[req.body.studentId],
+            {upsert:true}
         )
       }
     }else{
         dataBaseModel(req);
-        db.collection('students').findOneAndUpdate(
-          {'studentId': req.body.studentId},
-          scoreboard[req.body.studentId],
-          {upsert:true}
+        db.collection('students')
+          .findOneAndUpdate(
+            {'studentId': req.body.studentId},
+            scoreboard[req.body.studentId],
+            {upsert:true}
         )
       }
     }
