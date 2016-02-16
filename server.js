@@ -58,7 +58,7 @@ function initialiseScoreboard(db){
 var url = process.env.MONGOLAB_URI ||  'mongodb://cissa:cissaSISTERS@ds061375.mongolab.com:61375/heroku_8rd67kqq' ;
 
 
-MongoClient.connect(local_url, function(err, db){
+MongoClient.connect(url, function(err, db){
   assert.equal(null,err);
   console.log('connected to the database');
 
