@@ -2,7 +2,7 @@
 
 Things to be done
   - find out how to put a token or somethign in the post requests. IMPORTANT
-
+  - change dashboards, to use render/layouts properly. ie have a main render
   - doesn't work on samsung internet app for android. Check it works on ios & other mobile browsers
   - at the moment admin, renders the first 100 user, should change to use pagination ... 
   - should the scoreboard have pagination as well?
