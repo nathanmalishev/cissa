@@ -2,7 +2,9 @@
 
 Things to be done
   - make sign upscreen pretty
-  - add cissa logos, get rid of the fork/star thing
+  - add cissa logos
+  - form validation
+  - doesn't work on samsung internet app for android. Check it works on ios & other mobile browsers
 
 Things to check out if you haven't
   /admin - takes you to admin dashboard, user:cissa, password:cissasisters
@@ -18,4 +20,9 @@ npm install
 
 then run
 node server.js   or    nodemon server.js
+
+
+also in server.js if you want to run it lcoal you will have to switch out
+url with local_url in the database call
+
 
