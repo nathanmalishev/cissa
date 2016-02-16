@@ -230,7 +230,7 @@ function reset() {
     score = 0;
     credits.renderable = true;
     scoreText.setText("Flappy\nCISSA");
-    instText.setText("TOUCH TO FLAP\nBIRDIE WINGS");
+    instText.setText("TOUCH TO FLY"); 
     gameOverText.renderable = false;
     birdie.body.allowGravity = false;
     birdie.angle = 0;
@@ -342,7 +342,7 @@ function setGameOver() {
    postData(score); 
 
     gameOver = true;
-    instText.setText("TOUCH BIRDIE\nTO TRY AGAIN");
+    instText.setText("TOUCH \nTO TRY AGAIN");
     instText.renderable = true;
     var hiscore = window.localStorage.getItem('hiscore');
     hiscore = hiscore ? hiscore : score;
@@ -360,7 +360,8 @@ function setGameOver() {
     // Stop spawning fingers
     fingersTimer.stop();
     // Make birdie reset the game
-    birdie.events.onInputDown.addOnce(reset);
+    //birdie.events.onInputDown.addOnce(reset);
+    game.input.onDown.addOnce(reset);
     hurtSnd.play();
 }
 
