@@ -1,14 +1,14 @@
 # cissa flappy bird
 
 Things to be done
-  - make sign upscreen pretty
-  - add cissa logos
-  - form validation, really need this on studentID
   - doesn't work on samsung internet app for android. Check it works on ios & other mobile browsers
+  - at the moment admin, renders the first 100 user, should change to use pagination ... 
 
 Things to check out if you haven't
-  /admin - takes you to admin dashboard, user:cissa, password:cissasisters
   /scoreboard - takes you to public scoreboard
+  /admin - takes you to admin dashboard, user:cissa, password:cissasisters
+  /admin/student/:id - the id param takes in a student id and returns there dets
+
   
 
 ** HOW TO INSTALL **

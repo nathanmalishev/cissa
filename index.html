@@ -16,14 +16,15 @@
                 background-color:white;
                 margin: 0;
                 padding: 0;
-
             }
+            
+            
             #screen {
                 margin: 0 auto;
-                max-height:600px;
                 max-width:500px;
                 position: relative;
                 overflow: hidden;
+                height:100%;
                 
             }
             #signup {
@@ -43,12 +44,27 @@
               padding-bottom:20px;
             }
             #signup img{
-              max-width:500px;
+              height:auto;
+              max-width:90%;
+            }
+            #footer {
+              position:relative;
+              z-ithundex:10;
+              height:3em;
+              text-align:center;
+              color:#E8E8E8;
+              margin-top:100px;
+            }
+            #footer a{
+              color:inherit;
+            }
+            #footer .cissa{
+              color:#B8B8B8;
             }
             </style>
         </style>
     </head>
-    <body>
+    <body class="container">
       <div id="screen">
         <div id="signup">
           <img src="/assets/cissaLogo.png" alt="cissa">
@@ -60,6 +76,10 @@
           </form>
           
         </div>
+      </div>
+      <div id="footer">
+      
+      <p class="cissa" ><a href="http://cissa.org.au">Computing and Information Systems Society Association</a></p><p id="nathan"><a href="mailto:nathan.malishev@gmail.com?subject=RE: CISSA App">Webapp created by Nathan </a></p>
       </div>
       <script >
         $('#signupForm').validate({
