@@ -10,11 +10,13 @@
         <link rel="apple-touch-icon" href="assets/icon.png">
         <link rel="apple-touch-icon" sizes="120x120" href="assets/icon-120.png">
         <script src="phaser.min.js"></script>
+        <script src="jquery.validate.min.js"></script>
         <style>
             body {
-                background: #abc;
+                background-color:white;
                 margin: 0;
                 padding: 0;
+
             }
             #screen {
                 margin: 0 auto;
@@ -27,8 +29,10 @@
             #signup {
               text-align:center; 
             }
+            
             #signupForm{
-              width:50%;
+              width:55%;
+              max-width:100%;
               float:none;
               margin:0 auto;
             }
@@ -38,23 +42,45 @@
             h2{
               padding-bottom:20px;
             }
+            #signup img{
+              max-width:500px;
+            }
             </style>
         </style>
     </head>
     <body>
       <div id="screen">
         <div id="signup">
-          <h2>CISSA</h2>
+          <!--<img src="/assets/cissaLogo.png" alt="cissa">-->
           <form class="form-group" id="signupForm" action="javascript:start1();">
-            <label>Name</label><input class="form-control" required type="text" id="inputName" placeholder="John Snow">
-            <label>Student Id</label><input class="form-control" required type="number" id="inputStudentId" placeholder="654321">
-            <label>Email</label><input class="form-control" required type="email" id="inputEmail" placeholder="john.snow@gmail.com">
-            <br/>
+            <label>Name</label><input class="form-control" required type="text" id="inputName" placeholder="John Snow" name='name'><br/>
+            <label>Student Id</label><input class="form-control" required  id="inputStudentId" placeholder="654321" name="studentId"><br/>
+            <label>Email</label><input class="form-control" required type="email" id="inputEmail" placeholder="john.snow@gmail.com" name="email"><br/>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
           
         </div>
       </div>
-        
+      <script >
+        $('#signupForm').validate({
+          rules: {
+            studentId:{
+              number:true,
+              minlength:6,
+              maxlength:6,
+              required:true
+            }
+          },
+          messages:{
+            name: 'Please enter your name',
+            studentId:{
+              number: 'The studentID must be a number',
+              minlength: 'Please enter 6 digits',
+              maxlength: 'Please enter no more than 6 digits',
+              required:'Please enter your student id'
+            }
+          }
+          });
+      </script>
     </body>
 </html>
