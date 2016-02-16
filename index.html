@@ -50,7 +50,7 @@
       <div id="screen">
         <div id="signup">
           <h2>CISSA</h2>
-          <form class="form-group" id="signupForm" >
+          <form class="form-group" id="signupForm" action="javascript:start1();">
             <label>Name</label><input class="form-control" required type="text" id="inputName" placeholder="John Snow">
             <label>Student Id</label><input class="form-control" required type="text" id="inputStudentId" placeholder="654321">
             <label>Email</label><input class="form-control" required type="text" id="inputEmail" placeholder="john.snow@gmail.com">
@@ -59,12 +59,7 @@
           </form>
         </div>
       </div>
-        <script >
-          $("#signupForm").submit(function( event  ){
-            start1();
-            event.preventDefault();
-          })
-        </script>
+        
         <script src="phaser.min.js"></script>
     </body>
 </html>
