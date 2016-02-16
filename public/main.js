@@ -22,7 +22,9 @@ function postData(score){
 
 function start1(){
   //hide sign up
-  $('#signup').hide()
+  $(document).ready(function(){
+    $('#signup').show().hide();
+  });
 
   name=  $('#inputName').val();
   email = $('#inputEmail').val();
