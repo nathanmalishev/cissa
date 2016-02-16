@@ -21,14 +21,16 @@ function postData(score){
 }
 
 function start1(){
+  
+  name=  $('#inputName').val();
+  email = $('#inputEmail').val();
+  studentId = $('#inputStudentId').val();
   //hide sign up:
   $(document).ready(function(){
     $('#signup').remove();
   });
 
-  name=  $('#inputName').val();
-  email = $('#inputEmail').val();
-  studentId = $('#inputStudentId').val();
+  
 
   //below runs the game
 
