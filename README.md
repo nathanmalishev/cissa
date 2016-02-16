@@ -25,5 +25,5 @@ node server.js   or    nodemon server.js
 also in server.js if you want to run it lcoal you will have to switch out
 url with local_url in the database call
 
-To push to production use ```git push heroku heroku:master```
+To push to production use ```git push heroku prodcution:master```
 
