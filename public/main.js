@@ -23,7 +23,7 @@ function postData(score){
 function start1(){
   //hide sign up
   $(document).ready(function(){
-    $('#signup').show().hide();
+    $('#signup').remove();
   });
 
   name=  $('#inputName').val();
