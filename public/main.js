@@ -28,7 +28,9 @@ function start1(){
   //hide sign up:
   $(document).ready(function(){
     $('#signup').remove();
+    $('#marksteve').show();
   });
+  
 
   
 

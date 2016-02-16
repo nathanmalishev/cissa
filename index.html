@@ -49,8 +49,7 @@
             }
             #footer {
               position:relative;
-              z-ithundex:10;
-              height:3em;
+              z-index:10;
               text-align:center;
               color:#E8E8E8;
               margin-top:100px;
@@ -61,6 +60,9 @@
             #footer .cissa{
               color:#B8B8B8;
             }
+            #marksteve{
+              color:#E8E8E8;
+            }
             </style>
         </style>
     </head>
@@ -69,18 +71,35 @@
         <div id="signup">
           <img src="/assets/cissaLogo.png" alt="cissa">
           <form class="form-group" id="signupForm" action="javascript:start1();">
-            <label>Name</label><input class="form-control" required type="text" id="inputName" placeholder="John Snow" name='name'><br/>
-            <label>Student Id</label><input class="form-control" required  id="inputStudentId" placeholder="654321" name="studentId"><br/>
-            <label>Email</label><input class="form-control" required type="email" id="inputEmail" placeholder="john.snow@gmail.com" name="email"><br/>
+            <label>Name</label>
+            <input 
+                class="form-control" required type="text" id="inputName" 
+                placeholder="John Snow" name='name'
+            ><br/>
+            <label>Student Id</label>
+            <input 
+                class="form-control" required  id="inputStudentId" 
+                placeholder="654321" name="studentId"
+            ><br/>
+            <label>Email</label>
+            <input 
+                class="form-control" required type="email" id="inputEmail" 
+                placeholder="john.snow@gmail.com" name="email">
+            <br/>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
           
         </div>
       </div>
+      <p id="marksteve" >created by marksteve</p>
       <div id="footer">
-      
-      <p class="cissa" ><a href="http://cissa.org.au">Computing and Information Systems Society Association</a></p>      </div>
+        <p class="cissa" >
+        <a href="http://cissa.org.au">
+          Computing and Information Systems Student Association
+        </a></p>      
+      </div>
       <script >
+        $('#marksteve').hide()
         $('#signupForm').validate({
           rules: {
             studentId:{
