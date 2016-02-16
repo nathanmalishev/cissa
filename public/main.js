@@ -21,8 +21,7 @@ function postData(score){
 }
 
 function start1(){
-  alert('hello');
-  //hide sign up
+  //hide sign up:
   $(document).ready(function(){
     $('#signup').remove();
   });
