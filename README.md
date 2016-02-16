@@ -3,7 +3,7 @@
 Things to be done
   - make sign upscreen pretty
   - add cissa logos
-  - form validation
+  - form validation, really need this on studentID
   - doesn't work on samsung internet app for android. Check it works on ios & other mobile browsers
 
 Things to check out if you haven't
