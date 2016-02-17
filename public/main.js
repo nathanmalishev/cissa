@@ -6,18 +6,18 @@ var SPAWN_RATE = 1.2 / 1.2;
 var OPENING = 120;
 
 function postData(score){
-  $.ajax({
-    url: '/result',
-    type: 'POST',
-    contentType: 'application/json',
-    data: JSON.stringify({
-      name: name,
-      studentId, studentId,
-      email: email,
-      score: score
-    }),
-    dataType: 'json'
-  });
+ /* $.ajax({*/
+    //url: '/result',
+    //type: 'POST',
+    //contentType: 'application/json',
+    //data: JSON.stringify({
+      //name: name,
+      //studentId, studentId,
+      //email: email,
+      //score: score
+    //}),
+    //dataType: 'json'
+  /*});*/
 }
 
 function start1(){
