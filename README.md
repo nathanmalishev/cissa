@@ -1,13 +1,19 @@
 # cissa flappy bird
 
 Things to be done
-  - find out how to put a token or somethign in the post requests. IMPORTANT
-  - change dashboards, to use render/layouts properly. ie have a main render
-  - doesn't work on samsung internet app for android. Check it works on ios & other mobile browsers
-  - at the moment admin, renders the first 100 user, should change to use pagination ... 
-  - should the scoreboard have pagination as well?
-  - get ready for production.
-      - Look at pre loading game
+  - Security
+    - data validation on server for signup
+    - results. How can these be validated?
+  - Aesthitics
+    - Render dashboards properly through mustache
+  - Compatibility
+    - Iphone 5 safari ios9.3
+    - Samsumg internet app
+  - Pagination
+    - Admin page, shows first 100 users. no pagination 
+    - Scoreboard, shows only first 10 users. no pagination. maybe search feature
+  - Production
+      - Prefetch the game on signup screen. 
       - minify and bundle js/css etc
 
 Things to check out if you haven't
