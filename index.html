@@ -2,14 +2,12 @@
 <html>
     <head>
         <title>Flappy Bird</title>
-        <script src="main.js"></script>
         <link rel="stylesheet" href="bootstrap.min.css"></link>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="apple-touch-icon" href="assets/icon.png">
         <link rel="apple-touch-icon" sizes="120x120" href="assets/icon-120.png">
-        <script src="phaser.min.js"></script>
         <script src="jquery.validate.min.js"></script>
         <style>
             body {
@@ -130,12 +128,38 @@
             }
           }
           });
+          $.ajax({
+            url: '/assets/cissaBirdie.png',
+            cache: true
+          });
+          $.ajax({
+            url: '/assets/clouds.png',
+            cache: true
+          });
+           $.ajax({
+            url: '/assets/finger.png',
+            cache: true
+          });
+         $.ajax({
+            url: '/assets/fence.png',
+            cache: true
+          });
+          $.ajax({
+            url: '/assets/flap.wav',
+            cache: true
+          });
+          $.ajax({
+            url: '/assets/hurt.wav',
+            cache: true
+          });
       </script>
-      <link rel="prefetch" href="/assets/cissaBirdie.png">
-      <link rel="prefetch" href="/assets/finger.png">
-      <link rel="prefetch" href="/assets/flap.wav">
-      <link rel="prefetch" href="/assets/hurt.wav">
-      <link rel="prefetch" href="/assets/clouds.png">
-      <link rel="prefetch" href="/assets/fence.png">
+
+        <script src="main.js"></script>
+        <script src="phaser.min.js"></script>
+     <!-- <link rel="prefetch" href="/assets/finger.png">-->
+      <!--<link rel="prefetch" href="/assets/flap.wav">-->
+      <!--<link rel="prefetch" href="/assets/hurt.wav">-->
+      <!--<link rel="prefetch" href="/assets/clouds.png">-->
+      <!--<link rel="prefetch" href="/assets/fence.png">-->
     </body>
 </html>
