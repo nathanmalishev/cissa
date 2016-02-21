@@ -1,0 +1,90 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-S',
+1 verbose cli   'jquery-compat@3.0.0' ]
+2 info using npm@2.14.12
+3 info using node@v4.2.4
+4 verbose install initial load of /Users/nathan/Coding/projects/cissa/package.json
+5 warn package.json cissa@1.0.0 No repository field.
+6 verbose installManyTop reading scoped package data from /Users/nathan/Coding/projects/cissa/node_modules/assert/package.json
+7 verbose installManyTop reading scoped package data from /Users/nathan/Coding/projects/cissa/node_modules/basic-auth/package.json
+8 verbose installManyTop reading scoped package data from /Users/nathan/Coding/projects/cissa/node_modules/body-parser/package.json
+9 verbose installManyTop reading scoped package data from /Users/nathan/Coding/projects/cissa/node_modules/express/package.json
+10 verbose installManyTop reading scoped package data from /Users/nathan/Coding/projects/cissa/node_modules/express-handlebars/package.json
+11 verbose installManyTop reading scoped package data from /Users/nathan/Coding/projects/cissa/node_modules/mongodb/package.json
+12 info package.json assert@1.3.0 assert is also the name of a node core module.
+13 verbose readDependencies loading dependencies from /Users/nathan/Coding/projects/cissa/package.json
+14 silly cache add args [ 'jquery-compat@3.0.0', null ]
+15 verbose cache add spec jquery-compat@3.0.0
+16 silly cache add parsed spec Result {
+16 silly cache add   raw: 'jquery-compat@3.0.0',
+16 silly cache add   scope: null,
+16 silly cache add   name: 'jquery-compat',
+16 silly cache add   rawSpec: '3.0.0',
+16 silly cache add   spec: '3.0.0',
+16 silly cache add   type: 'version' }
+17 silly addNamed jquery-compat@3.0.0
+18 verbose addNamed "3.0.0" is a plain semver version for jquery-compat
+19 silly mapToRegistry name jquery-compat
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npmjs.org/
+22 silly mapToRegistry uri https://registry.npmjs.org/jquery-compat
+23 verbose addNameVersion registry:https://registry.npmjs.org/jquery-compat not in flight; fetching
+24 verbose request uri https://registry.npmjs.org/jquery-compat
+25 verbose request no auth needed
+26 info attempt registry request try #1 at 3:45:21 PM
+27 verbose request id 3d74e33e4045be38
+28 http request GET https://registry.npmjs.org/jquery-compat
+29 http 200 https://registry.npmjs.org/jquery-compat
+30 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+30 verbose headers   etag: '"8S85BEA6C4NVVBY84KLCTDWMM"',
+30 verbose headers   'content-type': 'application/json',
+30 verbose headers   'cache-control': 'max-age=300',
+30 verbose headers   'content-length': '2905',
+30 verbose headers   'accept-ranges': 'bytes',
+30 verbose headers   date: 'Sun, 21 Feb 2016 04:45:23 GMT',
+30 verbose headers   via: '1.1 varnish',
+30 verbose headers   age: '0',
+30 verbose headers   connection: 'keep-alive',
+30 verbose headers   'x-served-by': 'cache-mel6520-MEL',
+30 verbose headers   'x-cache': 'MISS',
+30 verbose headers   'x-cache-hits': '0',
+30 verbose headers   'x-timer': 'S1456029921.958900,VS0,VE1073',
+30 verbose headers   vary: 'Accept' }
+31 silly get cb [ 200,
+31 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+31 silly get     etag: '"8S85BEA6C4NVVBY84KLCTDWMM"',
+31 silly get     'content-type': 'application/json',
+31 silly get     'cache-control': 'max-age=300',
+31 silly get     'content-length': '2905',
+31 silly get     'accept-ranges': 'bytes',
+31 silly get     date: 'Sun, 21 Feb 2016 04:45:23 GMT',
+31 silly get     via: '1.1 varnish',
+31 silly get     age: '0',
+31 silly get     connection: 'keep-alive',
+31 silly get     'x-served-by': 'cache-mel6520-MEL',
+31 silly get     'x-cache': 'MISS',
+31 silly get     'x-cache-hits': '0',
+31 silly get     'x-timer': 'S1456029921.958900,VS0,VE1073',
+31 silly get     vary: 'Accept' } ]
+32 verbose get saving jquery-compat to /Users/nathan/.npm/registry.npmjs.org/jquery-compat/.cache.json
+33 verbose stack Error: version not found: jquery-compat@3.0.0
+33 verbose stack     at setData (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:137:12)
+33 verbose stack     at RES (/usr/local/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+33 verbose stack     at f (/usr/local/lib/node_modules/npm/node_modules/once/once.js:17:25)
+33 verbose stack     at fixName (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:29:5)
+33 verbose stack     at saved (/usr/local/lib/node_modules/npm/lib/cache/caching-client.js:173:7)
+33 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:210:7
+33 verbose stack     at FSReqWrap.oncomplete (fs.js:82:15)
+34 verbose statusCode 404
+35 verbose cwd /Users/nathan/Coding/projects/cissa
+36 error Darwin 15.3.0
+37 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-S" "jquery-compat@3.0.0"
+38 error node v4.2.4
+39 error npm  v2.14.12
+40 error version not found: jquery-compat@3.0.0
+41 error If you need help, you may report this error at:
+41 error     <https://github.com/npm/npm/issues>
+42 verbose exit [ 1, true ]

@@ -92,7 +92,6 @@ MongoClient.connect(url, function(err, db){
     var clicks                = req.body.clicks || null;
     var STUDENT_ID_MAX_LENGTH = 6;
     console.log(score);
-
     // field validation
     if( studentId === null || !isInt(studentId) || String(studentId).length != STUDENT_ID_MAX_LENGTH ) {
       return res.send(response_FALSE);

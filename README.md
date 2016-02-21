@@ -1,9 +1,6 @@
 # cissa flappy bird
 
 Things to be done
-  - Security
-    - data validation on server for signup
-    - results. How can these be validated?
   - Aesthitics
     - Render dashboards properly through mustache
   - Compatibility
@@ -13,8 +10,6 @@ Things to be done
     - Admin page, shows first 100 users. no pagination 
     - Scoreboard, shows only first 10 users. no pagination. maybe search feature
   - Production
-      - Prefetch the game on signup screen. 
-      -test
       - minify and bundle js/css etc
 
 Things to check out if you haven't
