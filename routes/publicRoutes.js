@@ -21,6 +21,11 @@ module.exports = function (db){
     })
   });
 
+  router.post('/student', (req,res)=>{
+    console.log(req.body);
+    res.send(req.body);
+  })
+
 
  return router; 
 }

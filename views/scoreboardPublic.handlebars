@@ -1,34 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-<link rel="stylesheet" href="bootstrap.min.css"></link>
-<style>
-  h2{
-    text-align:center;
-  }
-  .my-wrapper{
-    margin:0 auto;
-    max-width:500px;
-    position:relative;
-    height:100%;
-  }
-  img{
-    height:auto;
-    margin-left:auto;
-    margin-right:auto;
-    display:block;
-    max-width:90%;
-    padding-bottom:40px;
-  }
-</style>
-
-</head>
-<body class="container">
-  <div class="my-wrapper"> 
-    <img src="../assets/cissaLogo.png" alt="cissa">
-    <table class="table">
+<table class="table" style="max-width:550px;margin:auto;position:relative;">
       <tr>
         <th>Position</th>
         <th>Name</th>
@@ -42,6 +12,26 @@
       </tr>
       {{/each}}
     </table>  
-  </div>
-</body>
-</html>
+    
+    
+    <input type="text" class="form-control" id="search"> Search by StudentId </input>
+    <button onclick="javascript:query( $('#search').val() )">Go</button>
+    <div id="searchResult">
+    </div>
+    <script > 
+      function query (searchTerm){
+        console.log(searchTerm);
+        $("#searchResult").text("Search results for "+searchTerm+" being fetched..");
+        $.ajax({
+          url:'/student',
+          type:'POST',
+          contentType: 'application/json',
+          data: JSON.stringify({
+            studentId:  searchTerm 
+            }),
+            dataType: 'json'
+        });
+
+      }
+
+    </script>

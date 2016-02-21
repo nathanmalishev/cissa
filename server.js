@@ -13,7 +13,8 @@ var response_TRUE = {'success':'true'};
 var hbs = exphbs.create({
   helpers:{
     counter: function(index) {return index+1;}
-  }
+  },
+  defaultLayout: 'main'
 });
 //Set the engine to use handlebars to render pages
 app.engine('handlebars', hbs.engine);
