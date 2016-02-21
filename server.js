@@ -91,7 +91,7 @@ MongoClient.connect(url, function(err, db){
     var studentId             = req.body.studentId || null;
     var clicks                = req.body.clicks || null;
     var STUDENT_ID_MAX_LENGTH = 6;
-
+    console.log(score);
 
     // field validation
     if( studentId === null || !isInt(studentId) || String(studentId).length != STUDENT_ID_MAX_LENGTH ) {
@@ -109,7 +109,7 @@ MongoClient.connect(url, function(err, db){
     if(clicks === null || clicks.length === 0){
       return res.send(response_FALSE);
     }
-    
+   console.log(clicks); 
     //is the score legit validation
       var prev = clicks[0];
       if(prev.time > ((new Date).getTime()-600)){
@@ -130,12 +130,13 @@ MongoClient.connect(url, function(err, db){
         }
         prev = elem;
       })
-      if(clicks.length+3 < score){
+      if(clicks.length < score){
         return res.send(response_FALSE);
       }
       if(clicks[0].score != 0){
         return res.send(response_FALSE);
       }
+      console.log('valid');
     
 
     //is this already in the hash?
