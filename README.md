@@ -14,6 +14,7 @@ Things to be done
     - Scoreboard, shows only first 10 users. no pagination. maybe search feature
   - Production
       - Prefetch the game on signup screen. 
+      -test
       - minify and bundle js/css etc
 
 Things to check out if you haven't

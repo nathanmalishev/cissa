@@ -1,11 +1,19 @@
+/*var DEBUG = false;*/
+//var SPEED = 300;
+//var GRAVITY = 18;
+//var FLAP = 420;
+//var SPAWN_RATE = 1.4 / 1.2;
+/*var OPENING = 120;*/
+
 var DEBUG = false;
-var SPEED = 300;
+var SPEED = 400;
 var GRAVITY = 18;
 var FLAP = 420;
-var SPAWN_RATE = 1.2 / 1.2;
+var SPAWN_RATE = 1.4 / 1.2;
 var OPENING = 120;
 
 function postData(score){
+  console.log(score);
   $.ajax({
     url: '/result',
     type: 'POST',
@@ -14,10 +22,19 @@ function postData(score){
       name: name,
       studentId, studentId,
       email: email,
-      score: score
+      score: score,
+      clicks: clicks
     }),
     dataType: 'json'
   });
+}
+
+function addClick(clickArray,clickObject){
+  if(clickArray === null){
+    clickArray = []; 
+  }
+  clickArray.push(clickObject);
+  return clickArray;
 }
 
 function start1(){
@@ -127,7 +144,6 @@ function signup(  ){
   
 }
 function create() {
-    
     // Set world dimensions
     var screenWidth = parent.clientWidth > window.innerWidth ? window.innerWidth : parent.clientWidth;
     var screenHeight = parent.clientHeight > window.innerHeight ? window.innerHeight : parent.clientHeight;
@@ -225,6 +241,7 @@ function create() {
 }
 
 function reset() {
+    clicks = [];
     gameStarted = false;
     gameOver = false;
     score = 0;
@@ -263,6 +280,7 @@ function flap() {
     if (!gameOver) {
         birdie.body.velocity.y = -FLAP;
         flapSnd.play();
+        clicks.push( { time: (new Date).getTime(), score:score  });
     }
 }
 
