@@ -12,8 +12,10 @@ module.exports = function(db){
     if( !credentials || credentials.name !== 'cissa' || credentials.pass !== 'cissasisters' ){
       res.statusCode = 401;
       res.setHeader('WWW-Authenticate', 'Basic realm="admin"');
+      res.end('Access denied') 
+    }else {
+      next();
     }
-    next();
   })
 
 
