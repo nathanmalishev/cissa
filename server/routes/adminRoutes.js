@@ -6,6 +6,7 @@ var router = express.Router();
 
 module.exports = function(db){
 
+
   //have password auth nice and hard coded lol
   router.use(function Authentication(req, res,next){
     var credentials = auth(req);
