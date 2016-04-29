@@ -66,8 +66,41 @@ function scoreValidation(clicks){
 
 }
 
+
+//hydrates the first scoreboard from the db
+function initialiseScoreboard(db) {
+  var board = {};
+  db.collection('students').find().forEach(function (doc) {
+    if (doc === null) {
+      return board;
+    }
+
+    board[doc.studentId] = {
+      name: doc.name,
+      email: doc.email,
+      studentId: doc.studentId,
+      score: doc.score,
+    };
+  });
+
+  return board;
+}
+
+function dataBaseModel(req) {
+    return (
+      scoreboard[req.body.studentId] = {
+        email: req.body.email,
+        name: req.body.name,
+        score: req.body.score,
+        studentId: req.body.studentId,
+      }
+    );
+  };
+
 module.exports = {
   isInt: isInt,
   fieldValidation: fieldValidation,
-  scoreValidation: scoreValidation
+  scoreValidation: scoreValidation,
+  initialiseScoreboard: initialiseScoreboard,
+  dataBaseModel: dataBaseModel
 };

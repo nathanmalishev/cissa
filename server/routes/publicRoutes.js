@@ -2,46 +2,23 @@ var express = require('express');
 var router = express.Router();
 var assert = require('assert');
 var path  = require('path');
-var isInt = require('../helper/helpers').isInt;
 var response_FALSE = require('../config/config').response_FALSE;
 var response_TRUE = require('../config/config').response_TRUE;
+var helperAPI = require('../helper/helpers');
+var isInt = helperAPI.isInt;
+var initialiseScoreboard = helperAPI.initialiseScoreboard;
+var dataBaseModel = helperAPI.dataBaseModel;
+var fieldValidation = helperAPI.fieldValidation;
 
 module.exports = function (db) {
-  //construct a hash
-  scoreboard = initialiseScoreboard(db);
+
 
   //local storage on server
   var scoreboard = {};
-  dataBaseModel = (req)=> {
-    // this will have added database functionality eventually
-    return (
-    scoreboard[req.body.studentId] = {
-      email: req.body.email,
-      name: req.body.name,
-      score: req.body.score,
-      studentId: req.body.studentId,
-    }
-    );
-  };
+  //construct a hash
+  scoreboard = initialiseScoreboard(db);
 
-  //hydrates the first scoreboard from the db
-  function initialiseScoreboard(db) {
-    var board = {};
-    db.collection('students').find().forEach(function (doc) {
-      if (doc === null) {
-        return board;
-      }
 
-      board[doc.studentId] = {
-        name: doc.name,
-        email: doc.email,
-        studentId: doc.studentId,
-        score: doc.score,
-      };
-    });
-
-    return board;
-  }
 
   router.get('/', (req, res)=> {
     res.sendFile(path.normalize(__dirname + '/../index.html'));
@@ -104,6 +81,7 @@ module.exports = function (db) {
             { upsert: true }
         );
       }
+
       return res.send(response_TRUE);
     }
   );

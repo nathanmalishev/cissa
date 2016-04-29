@@ -8,30 +8,9 @@
       <tr>
         <td> {{counter @index }}</td>
         <td>{{this.name}}</td>
-        <td>{{this.score}}</td>    
+        <td>{{this.score}}</td>
       </tr>
       {{/each}}
-    </table>  
-    
-    
-    <input type="text" class="form-control" id="search"> Search by StudentId </input>
-    <button onclick="javascript:query( $('#search').val() )">Go</button>
-    <div id="searchResult">
-    </div>
-    <script > 
-      function query (searchTerm){
-        console.log(searchTerm);
-        $("#searchResult").text("Search results for "+searchTerm+" being fetched..");
-        $.ajax({
-          url:'/student',
-          type:'POST',
-          contentType: 'application/json',
-          data: JSON.stringify({
-            studentId:  searchTerm 
-            }),
-            dataType: 'json'
-        });
+    </table>
 
-      }
 
-    </script>
