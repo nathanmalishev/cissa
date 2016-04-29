@@ -5,7 +5,7 @@ function isInt(value) {
          !isNaN(parseInt(value, 10));
 }
 
-function fieldValidation(studentId, score, name, email, clicks) {
+function fieldValidation(studentId,STUDENT_ID_MAX_LENGTH, score, name, email, clicks) {
   if (studentId === null || !isInt(studentId) || String(studentId).length != STUDENT_ID_MAX_LENGTH) {
     return false;
   }
@@ -86,7 +86,7 @@ function initialiseScoreboard(db) {
   return board;
 }
 
-function dataBaseModel(req) {
+function dataBaseModel(req, scoreboard) {
     return (
       scoreboard[req.body.studentId] = {
         email: req.body.email,
