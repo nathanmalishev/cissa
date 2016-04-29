@@ -1,5 +1,9 @@
 module.exports = {
+  cred: {
+    username: 'cissa',
+    password: 'cissasisters'
+  },
   db: {
-    url: 'mongodb://localhost/nodeblog'
+    url: 'mongodb://localhost/cissa'
   }
 };

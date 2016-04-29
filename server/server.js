@@ -16,13 +16,10 @@ MongoClient.connect(config.db.url, function (err, db) {
   console.log('connected to the database');
 
   // Use admin routes
-  var adminRoutes = require('./routes/adminRoutes')(db);
-  app.use('/admin', adminRoutes);
-
+  app.use('/admin', require('./routes/adminRoutes')(db));
 
   //Use public routes
-  var publicroutes = require('./routes/publicRoutes')(db);
-  app.use('/', publicroutes);
+  app.use('/', require('./routes/publicRoutes')(db));
 });
 
 
